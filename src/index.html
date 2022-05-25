@@ -9,10 +9,11 @@
     <link rel="stylesheet" href="css/font.css">
 	<link rel="stylesheet" href="css/slick.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.4/tiny-slider.css">
-    <link rel="stylesheet" href="css/style.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">   
+	<link rel="stylesheet" href="css/style.min.css">
 </head>
 <body>
-    <section class="promo">
+    <section id="up" class="promo">
         <div class="container">
             <header class="header">
 				<a href="#" class="header__logo">
@@ -24,7 +25,7 @@
 				</div>
 				<div class="header__contacts">
 					<a href="tel:+38066525255" class="header__phone">+38 066 525 52 55</a>
-					<button class="button">Заказать звонок</button>
+					<button data-modal="consultation" class="button">Заказать звонок</button>
 				</div>
 			</header>
 			<div class="promo__wrapper">
@@ -44,7 +45,7 @@
 						Ответим на все вопросы
 					</div>
 				</div>
-				<button class="button button_main">ЗАКАЗАТЬ КОНСУЛЬТАЦИЮ</button>
+				<button data-modal="consultation" class="button button_main">ЗАКАЗАТЬ КОНСУЛЬТАЦИЮ</button>
 				<div class="promo__link">или 
 					<a href="#">ПЕРЕЙТИ В КАТАЛОГ</a>
 				</div>
@@ -62,7 +63,7 @@
 					<div class="advantages__descr">Наши сотрудники всегда готовы поделиться своим опытом, так как сами бегают полумарафоны, переплыли Босфор, готовятся к соревнованиям по триатлону!</div>
 			</div>
 			<div class="advantages__block">
-				<img src="icons/advantages/heart.png" alt="heart">
+				<img src="icons/advantages/heart.png" alt="heart" class="advantages__icon">
 				<div class="advantages__subheader">Заботимся о здоровье</div>
 				<div class="advantages__descr">Мы работаем для того, чтобы Ваши занятия спортом шли на пользу Вашему здоровью и были в радость Вам и Вашим близким!</div>
 			</div>
@@ -81,10 +82,10 @@
 			<div class="consultation__descr">
 				Просто заполните форму заявки <br> и мы перезвоним вам в течении 10 минут
 			</div>
-			<form class="feed-form" action="#">
+			<form id="consultation-form" class="feed-form" action="#">
 				<label>
 					<input name="name" required placeholder="Ваше имя" type="text">
-					<input name="phone" required placeholder="Ваш телефон" type="number">
+					<input name="phone" required placeholder="Ваш телефон" >
 					<input name="email" required placeholder="Ваш E-mail" type="email">
 					<button class="button button_submit">Заказать консультацию</button>
 				</label>
@@ -150,7 +151,7 @@
 					<div class="catalog-item__wrapper">
 						<div class="catalog-item__content catalog-item__content_active">
 							<img src="img/pulsometr.png" alt="pulsometr" class="catalog-item__img"> 
-							<div class="catalog-item__subtitle">Пульсометр Polar FT1</div>
+							<div class="catalog-item__subtitle">Пульсометр Suunto M2</div>
 							<div class="catalog-item__descr">Для первых шагов в тренировках, основанных на сердечном ритме</div>
 							<a href="#" class="catalog-item__link">ПОДРОБНЕЕ</a>
 						</div>
@@ -368,7 +369,7 @@
 			<h2 class="title">
 				отзывы клиентов
 			</h2>
-			<div class="comment__block">
+			<div class="comment__block animate__animated animate__fadeInUp wow" data-wow-duration="2s" data-wow-delay="5s">
 			<img src="img/feed_1.png" alt="feed_photo">
 				<div class="comment__descr">
 					<div class="comment__title">Ирина Иванченко</div>
@@ -379,7 +380,7 @@
 				</div>
 				
 			</div>
-			<div class="comment__block">
+			<div class="comment__block animate__animated animate__fadeInUp wow" data-wow-duration="2s" data-wow-delay="5s">
 			<img src="img/feed_2.png" alt="feed_photo">
 				<div class="comment__descr">
 					<div class="comment__title">Иван Сёмочкин</div>
@@ -390,7 +391,7 @@
 				</div>
 				
 			</div>
-			<div class="comment__block">
+			<div class="comment__block animate__animated animate__fadeInUp wow" data-wow-duration="2s" data-wow-delay="5s">
 				<img src="img/feed_3.png" alt="feed_photo">
 				<div class="comment__descr">
 					<div class="comment__title">Юлия Дашкина</div>
@@ -421,10 +422,54 @@
 		</div>
 	</footer>
 
+	<div class="overlay">
+		<div class="modal" id="consultation">
+			<div class="modal__close">&times;</div>
+			<div class="modal__subtitle">Просто заполните форму заявки</div>
+			<div class="modal__descr">и мы перезвоним вам в течении 10 минут</div>
+			<form class="feed-form feed-form_mt25" action="#">
+				<label>
+					<input name="name" placeholder="Ваше имя" type="text">
+					<input name="phone" placeholder="Ваш телефон" >
+					<input name="email" placeholder="Ваш E-mail" type="email">
+					<button class="button button_submit">Заказать консультацию</button>
+				</label>
+				
+			</form>
+		</div>
+
+		<div class="modal" id="order">
+			<div class="modal__close">&times;</div>
+			<div class="modal__subtitle">Ваш заказ:</div>
+			<div class="modal__descr">Пульсометр Polar FT1</div>
+			<form class="feed-form feed-form_mt25" action="#">
+				<label>
+					<input name="name" required minlength="2" placeholder="Ваше имя" type="text">
+					<input name="phone" required minlength="7" placeholder="Ваш телефон" >
+					<input name="email" required minlength="3" placeholder="Ваш E-mail" type="email">
+					<button class="button button_submit">Купить</button>
+				</label>
+			</form>
+		</div>
+		<div class="modal modal_mini" id="thanks">
+			<div class="modal__close">&times;</div>
+			<div class="modal__subtitle">Спасибо за вашу заявку!</div>
+			<div class="modal__descr">Наш менеджер свяжется с вами в ближайшее время!</div>
+		</div>
+	</div>
+
+	<a href="#up" class="pageup">
+		<img src="icons/up.svg" alt="up">
+	</a>
+	
+
 	<script type="text/javascript" src="https://code.jquery.com/jquery-1.11.0.min.js"></script>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
 	<script src="js/slick.min.js"></script>
+	<script src="js/jquery.validate.min.js"></script>
+	<script scr="js/jquery.maskedinput.min.js"></script>
 	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/tiny-slider/2.9.2/min/tiny-slider.js"></script> -->
+	<script src="js/wow.min.js"></script>
 	<script src="js/script.js"></script>
 </body>
 </html>
